@@ -1,0 +1,38 @@
+/* pages/classic/classic.wxss */
+
+.chunk {
+  /* 行内元素 *//* display:inline-block; */
+  display: block;
+  width: 150px;
+  height: 100px;
+}
+
+.container {
+  /* flex-direction: column, column-reverse, row, row-reverse; */
+  /* justify-content: flex-end, space-between,center; */
+  /* align-items: baseline 字体对齐 */
+  /* view 100% height自适应 */
+  /* 主轴 交叉轴 */
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  height: 200px;
+  background-color: #999;
+  justify-content: center;
+  align-items: center;
+}
+
+.color1 {
+  background-color: blue;
+  font-size: 26px;
+}
+
+.color2 {
+  background-color: red;
+  font-size: 30px;
+}
+
+.color3 {
+  background-color: aqua;
+  font-size: 40px;
+}
