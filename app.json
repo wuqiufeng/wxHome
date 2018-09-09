@@ -1,13 +1,13 @@
 {
-  "pages": [
-    "pages/classic/classic"
-  ],
-  "window":{
-    "navigationBarBackgroundColor":"#ffff00",
-    "navigationBarTitleText": "一夜知秋",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"default",
-    "backgroundColor":"#D80000",
-    "enablePullDownRefresh":false
-  }
+    "pages": [
+        "pages/classic/classic"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ffff00",
+        "navigationBarTitleText": "一夜知秋",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "default",
+        "backgroundColor": "#D80000",
+        "enablePullDownRefresh": false
+    }
 }

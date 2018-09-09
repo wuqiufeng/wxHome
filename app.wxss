@@ -1,9 +1,9 @@
-page{
-  font-family: "PingFangSC-Thin";
-  font-size: 32rpx;
+page {
+    font-family: "PingFangSC-Thin";
+    font-size: 32rpx;
 }
 
-.container{
-  background-color: blue;
-  height: 50px;
+.container {
+    background-color: blue;
+    height: 50px;
 }
