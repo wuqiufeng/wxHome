@@ -3,7 +3,7 @@ page {
     font-size: 32rpx;
 }
 
-.container {
+/* .container {
     background-color: blue;
     height: 50px;
-}
+} */

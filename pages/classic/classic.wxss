@@ -1,6 +1,14 @@
 /* pages/classic/classic.wxss */
 
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header{
+    width: 100%;
     display: flex;
     flex-direction: row;
     height: 100rpx;
@@ -20,6 +28,11 @@
     margin-top: 6rpx;
 }
 
+.navi{
+    position: absolute;
+    bottom: 40rpx;
+}
+
 .chunk {
     /* 行内元素 *//* display:inline-block; */
     display: block;
@@ -27,7 +40,7 @@
     height: 100px;
 }
 
-.container {
+.containerfalse {
     /* flex-direction: column, column-reverse, row, row-reverse; *//* justify-content: flex-end, space-between,center; *//* align-items: baseline 字体对齐 *//* view 100% height自适应 *//* 主轴 交叉轴 */
     display: flex;
     flex-direction: row-reverse;

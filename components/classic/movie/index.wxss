@@ -1,4 +1,9 @@
 /* components/classic/movie/index.wxss */
+.content{
+    font-size: 36rpx;
+    max-width: 550rpx;
+}
+
 .classic-container{
     display: flex;
     flex-direction: column;
@@ -18,8 +23,3 @@
     bottom: 58rpx;
 }
 
-.content{
-    font-size: 36rpx;
-    max-width: 550rpx;
-    
-}

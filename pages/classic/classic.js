@@ -13,7 +13,9 @@ Page({
      */
     data: {
         test: 1,
-        classic: null
+        classic: null,
+        latest:true,
+        first:false,
     },
     /**
      * 生命周期函数--监听页面加载
@@ -79,6 +81,29 @@ Page({
         let behavior = event.detail.behavior
         likeModel.like(behavior,this.data.classic.id,
         this.data.classic.type)
+    },
+
+
+   
+
+    onNext:function(event){
+        this._updateClassic('next')
+    },
+
+    onPrevious:function(event){
+        this._updateClassic('previous')
+    },
+
+    _updateClassic:function(nextOrPrevious){
+        let index = this.data.classic.index
+        classicModel.getClassic(index,nextOrPrevious,(res)=>{
+            // console.log(res)
+            this.setData({
+                classic:res,
+                latest:classicModel.isLaster(res.index),
+                first:classicModel.isFirst(res.index),
+            })
+        })
     },
 
     /**
