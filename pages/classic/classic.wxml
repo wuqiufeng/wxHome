@@ -11,8 +11,8 @@
     3
   </view>
 </view> -->
-
-
-<v-like bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
-
+<view class="header">
+  <v-episode index="{{classic.index}}" />
+  <v-like bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+</view>
 <v-movie img="{{classic.image}}" content="{{classic.content}}" />

@@ -18,13 +18,14 @@ class HTTP {
             data: params.data,
             header: {
                 'content-type': 'application/json',
-                'appkey': '98HcsgdJ3mx4Ufcm',
+                'appkey': config.appkey,
             },
             success: (res) => {
                 let code = res.statusCode.toString()
-                // console.log(res.data)
+                console.log(res.data)
                 if (code.startsWith('2')) {
-                    params.success(res.data)
+                    // console.log(res.data)
+                    params.success && params.success(res.data)
                 } else {
                     let error_code=res.data.error_code
                     this._show_error(error_code)
