@@ -2,6 +2,8 @@
 
 import { classicBeh } from '../classic-beh.js'
 
+const mMgr = wx.getBackgroundAudioManager()
+
 Component({
   /**
    * 组件的属性列表
@@ -10,20 +12,79 @@ Component({
   behaviors: [classicBeh],
 
   properties: {
+    src: String,
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    pauseSrc: 'images/player@waitting.png',
-    playSrc: 'images/player@playing.png',
+    playing: false,
+    pauseSrc: 'images/player@pause.png',
+    playSrc: 'images/player@play.png',
+  },
+
+  attached: function (event) {
+    this._recoveryStatus()
+    // this._monitorSwith()
+  },
+
+  detached: function (event) {
+
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    onPlay: function (event) {
+      if (!this.data.playing) {
+        this.setData({
+          playing: true,
+        })
+        mMgr.src = this.properties.src
+      }
+      else {
+        this.setData({
+          playing: false,
+        })
+        mMgr.pause()
+      }
+    },
+
+    _recoveryStatus: function () {
+      if (mMgr.paused) {
+        this.setData({
+          playing: false
+        })
+        return
+      }
+
+      if (mMgr.src == this.properties.src) {
+        this.setData({
+          playing: true
+        })
+      }
+    },
+
+    _monitorSwith: function () {
+      mMgr.onPlay(() => {
+        this._recoveryStatus()
+      })
+
+      mMgr.onPause(() => {
+        this._recoveryStatus()
+      })
+
+      mMgr.onStop(() => {
+        this._recoveryStatus()
+      })
+
+      mMgr.onEnded(() => {
+        this._recoveryStatus()
+      })
+    }
+
 
   }
 })

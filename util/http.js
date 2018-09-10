@@ -22,9 +22,9 @@ class HTTP {
             },
             success: (res) => {
                 let code = res.statusCode.toString()
-                console.log(res.data)
+                // console.log('http')
                 if (code.startsWith('2')) {
-                    // console.log(res.data)
+                    console.log(res.data)
                     params.success && params.success(res.data)
                 } else {
                     let error_code=res.data.error_code
