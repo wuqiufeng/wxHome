@@ -13,13 +13,18 @@
 </view> -->
 <view class="container">
   <view class="header">
-    <v-episode index="{{classic.index}}" />
-    <v-like bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+    <v-episode class="episode" index="{{classic.index}}" />
+    <view class="like-container">
+      <v-like bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+      <v-img-btn class="share-btn" open-type="share">
+        <image class="share" slot="img" src="/images/icon/share.png" />
+      </v-img-btn>
+
+    </view>
   </view>
   <v-movie hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />
-  <!-- <v-music hidden="{{classic.type!=200}}" img="{{classic.image}}"  -->
-  <v-music wx:if="{{classic.type==200}}" img="{{classic.image}}" 
-  src="{{classic.url}}" content="{{classic.content}}" />
+  <!-- <v-music hidden="{{classic.type!=200}}" img="{{classic.image}}" -->
+  <v-music wx:if="{{classic.type==200}}" img="{{classic.image}}" src="{{classic.url}}" content="{{classic.content}}" />
   <v-essay hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}" />
   <v-navi bind:left="onNext" bind:right="onPrevious" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" class="navi" />
 </view>

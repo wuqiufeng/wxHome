@@ -4,7 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    book:Object
+    book:Object,
+    showLike:{
+      type:Boolean,
+      value:true,
+    }
   },
 
   /**
@@ -18,6 +22,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    // 减低组件通用性 方便 服务当前项目
+    onTap(event){
+      const bid = this.properties.book.id
+      wx.navigateTo({
+         url:`/pages/book-detail/book-detail?bid=${bid}`,
+      })
+    }
 
   }
 })

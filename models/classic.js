@@ -21,14 +21,14 @@ class ClassicModel extends HTTP {
         if (!classic) {
             this.request({
                 url: `classic/${index}/${nextOrPrevious}`,
-                success: (res) => { 
+                success: (res) => {
                     // console.log('getClassic')
                     wx.setStorageSync(this._getKey(res.index), res)
                     sCallback(res)
                 }
             })
         }
-        else{
+        else {
             sCallback(classic)
         }
 
@@ -44,6 +44,14 @@ class ClassicModel extends HTTP {
         })
     }
 
+    getById(cid, type, success){
+        let params = {
+            url:'classic/'+type+'/' + cid,
+            success:success
+        }
+        this.request(params)
+    }
+
     getNext(index, sCallback) {
         this.request({
             url: 'classic/' + index + '/next',
@@ -53,6 +61,15 @@ class ClassicModel extends HTTP {
             }
         })
 
+    }
+
+    getMyFavor(sCallback) {
+        this.request({
+            url: 'classic/favor',
+            success: (res) => {
+                sCallback(res)
+            }
+        })
     }
 
     isFirst(index) {

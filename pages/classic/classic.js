@@ -50,7 +50,7 @@ Page({
         // // let that = this
 
         // wx.request({
-        //   url: 'http://bl.7yue.pro/v1/classic/latest',
+        //   url: 'http:/v1/classic/latest',
         //   header: {
         //     appkey: "98HcsgdJ3mx4Ufcm"
         //   },
@@ -87,11 +87,9 @@ Page({
     onLike: function (event) {
         // console.log(event)
         let behavior = event.detail.behavior
-        likeModel.like(behavior, this.data.classic.id,
+        const like = likeModel.like(behavior, this.data.classic.id,
             this.data.classic.type)
     },
-
-
 
 
     onNext: function (event) {
@@ -116,14 +114,21 @@ Page({
     },
 
     _getLikeStatus: function (artId, category) {
-        likeModel.getClassicLikeStatus(artId, category, (res) => {
-            this.setData({
-                likeCount: res.fav_nums,
-                likeStatus: res.like_status,
-            })
-
+      const likeStatus = likeModel.getClassicLikeStatus(artId, category)
+      likeStatus.then(res=>{
+        this.setData({
+          likeCount: res.fav_nums,
+          likeStatus: res.like_status,
         })
+      })
+        // likeModel.getClassicLikeStatus(artId, category, (res) => {
+        //     this.setData({
+        //         likeCount: res.fav_nums,
+        //         likeStatus: res.like_status,
+        //     })
+        // })
     },
+
 
     /**
      * 生命周期函数--监听页面显示

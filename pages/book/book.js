@@ -2,6 +2,8 @@
 
 import { BookModel } from '../../models/book.js'
 
+import { random } from '../../util/common.js'
+
 
 let bookModel = new BookModel()
 
@@ -19,9 +21,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books:[]
+    books: [],
+    searching: false,
+    more: false,
+    str:""
+  },
+
+
+  onSearching: function (event) {
+    this.setData({
+      searching: true
+    })
 
   },
+
+  onCancel: function (event) {
+    this.setData({
+      searching: false
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -31,20 +50,41 @@ Page({
       .then(res => {
         console.log(res)
         this.setData({
-          books:res,
+          books: res,
         })
-        return bookModel.getMyBookCount()
-      })
-      .then(res => {
-        console.log(res)
-        return bookModel.getMyBookCount()
-      })
-      .then(res => {
-        console.log(res)
-        return bookModel.getMyBookCount()
       })
 
+    // const hotList01 = bookModel.getHotList()
+    // hotList01.then(res=>{
+    //   console.log(res)
+    // })
 
+
+
+
+
+    // bookModel.getHotList()
+    //   .then(res => {
+    //     console.log(res)
+    //     this.setData({
+    //       str:res[0].author
+    //     })
+    //     return bookModel.getMyBookCount()
+    //   })
+    //   .then(res => {
+    //     console.log(this.data.str)
+    //     this.setData({
+    //       str:this.data.str+res.count
+    //     })
+    //     return bookModel.getMyBookCount()
+    //   })
+    //   .then(res => {
+    //     console.log(this.data.str)
+    //     this.setData({
+    //       str:this.data.str+res.count
+    //     })
+    //     console.log(this.data.str)
+    //   })
 
     // const hotList = bookModel.getHotList()
     // hotList.then(
@@ -131,7 +171,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      more:random(32)
+    })
+    // console.log(111111)
   },
 
   /**

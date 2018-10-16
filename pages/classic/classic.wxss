@@ -21,12 +21,31 @@
 .episode{
     margin-left: 20rpx;
     margin-top: 4rpx
-
 }
+
+.like-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right:30rpx;
+  }
+
 
 .like{
-    margin-top: 6rpx;
+    margin-right: 30rpx;
+    margin-top:12rpx;
+  }
+
+.share{
+    /* padding:10rpx; */
+    width:40rpx;
+    height:40rpx;
 }
+.share-btn{
+    margin-top:28rpx;
+    margin-left:10rpx;
+  }
 
 .navi{
     position: absolute;
